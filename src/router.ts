@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import IndexPage from '@/pages/IndexPage.vue'
+import IndexPage from '@/pages/HomePage/IndexPage.vue'
+import AboutUsPage from '@/pages/AboutUs/AboutUsPage.vue'
 
 const routes = [
   {
@@ -10,6 +11,10 @@ const routes = [
       title: 'Anasayfa',
     },
   },
+  {
+    path: '/Hakimizda',
+    component: AboutUsPage,
+  }
 
 ]
 
