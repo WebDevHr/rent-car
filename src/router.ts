@@ -7,9 +7,10 @@ const routes = [
     path: '/',
     component: IndexPage,
     meta: {
-      title: 'Vite + Vue + TypeScript + Tailwind Starter Template',
+      title: 'Anasayfa',
     },
   },
+
 ]
 
 const router = createRouter({
