@@ -14,6 +14,19 @@ const routes = [
   {
     path: '/Hakimizda',
     component: AboutUsPage,
+    meta: {
+      title: 'Rent Car',
+    },
+  },
+  {
+    path: '/Araclar',
+    component: AboutUsPage,
+
+  },
+  {
+    path: '/iletisim',
+    component: AboutUsPage,
+
   }
 
 ]
