@@ -25,8 +25,8 @@
 
             <template #body>
               <div
-                class="flex felx-row border rounded bg-white absolute left-0 w-full px-32 truncate myCustom element-to-animate">
-                <img src="src/assets/img/ddImg.png" alt="" class="my-14">
+                class="flex felx-row items-center justify-center border rounded bg-white absolute left-0 w-full px-32 truncate myCustom element-to-animate">
+                <img src="src/assets/img/ddImg.png" alt="" class="w-72 h-48">
                 <ul>
                   <li v-for="(sub, i) in item.subLinks" :key="i">
                     <a href="">{{ sub }}</a>
