@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    HeaderComponent: typeof import('./components/GlobalComponents/HeaderComponent.vue')['default']
     HelloWorld: typeof import('./components/HomePageComponents/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
