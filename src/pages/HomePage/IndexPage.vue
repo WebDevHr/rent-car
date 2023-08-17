@@ -44,8 +44,12 @@ export default defineComponent({
       </Carousel>
       <HelloWorld msg="Hello World Component" />
     </main>
+    <footer class="py-6 text-sm text-center text-gray-700">
+
+    </footer>
   </div>
 </template>
+
 
 
 <style>
