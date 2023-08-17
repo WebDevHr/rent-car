@@ -13,6 +13,11 @@ module.exports = {
   //     },
   //   },
   // },
+  theme: {
+    boxShadow: {
+      'custom': '5px 5px 15px 5px rgb(176, 176, 176)',
+    }
+  },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),

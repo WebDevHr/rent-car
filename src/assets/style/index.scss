@@ -1,0 +1,53 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@layer base {
+
+.v-dropdown-menu {
+    $this: &;
+  
+    &.custom-style & {
+      &__container {
+        border-radius: 5px;
+
+        #{$this} {
+          &__body {
+            div{
+							background-color: white;
+              z-index: 1000;
+							height: 400px;
+							background-color: rgba(0, 0, 0, 0.8);
+							
+              ul {
+                margin: 0;
+                padding: 0;
+                @apply ml-20;
+                
+                li {
+                  list-style: none;
+                  width: 300px;
+    
+                  a {
+                    display: flex;
+                    color: #ffffff;
+                    padding: 1rem;
+                    font-size: 16px;
+                    text-decoration: none;
+    
+                    &:hover {
+                      background-color: #f2f2f2;
+                      color: rgb(0, 0, 0);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

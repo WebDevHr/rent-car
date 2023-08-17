@@ -16,8 +16,10 @@
   "dependencies": {
     "@vueuse/head": "1.1.26",
     "pinia": "2.1.4",
+    "v-dropdown-menu": "^2.0.3",
     "vue": "3.3.4",
-    "vue-router": "4.2.2"
+    "vue-router": "4.2.2",
+    "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "1.1.0",
@@ -56,7 +58,8 @@
     "postcss": "8.4.24",
     "postcss-import": "15.1.0",
     "postcss-nesting": "12.0.0",
-    "tailwindcss": "3.3.2",
+    "sass": "^1.65.1",
+    "tailwindcss": "^3.3.2",
     "typescript": "5.1.6",
     "unplugin-auto-import": "0.16.5",
     "unplugin-vue-components": "0.25.1",

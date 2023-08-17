@@ -1,9 +1,25 @@
 <script setup lang="ts">
 
+const route = useRoute()
+
+useHead({
+	title: route.meta.title,
+	meta: [
+		{
+			property: 'og:title',
+			content: route.meta.title,
+		},
+		{
+			name: 'twitter:title',
+			content: route.meta.title,
+		},
+	],
+})
 </script>
 
 <template>
 	<div>
+<<<<<<< HEAD
 		<h1 class="px-5 py-5" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight: bolder; text-align: center; font-size: larger;">Hakkımızda</h1>
 		<div class="comment-1 px-5 py-5">
 			<div class="comment px-1 py 1 "  >
@@ -18,6 +34,9 @@ The lastgreat war of antiquity
 </div>
 
 		</div>
+=======
+		<h1 class="bg-red-500">Hakkımızda</h1>
+>>>>>>> b1b1567818daf7e5eeea4e2966618138e050492d
 	</div>
 </template>
 <style scoped>
