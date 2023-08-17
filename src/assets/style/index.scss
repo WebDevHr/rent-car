@@ -13,38 +13,37 @@
       &__container {
         border-radius: 5px;
 
-
-  
         #{$this} {
           &__body {
             div{
 							background-color: white;
               z-index: 1000;
-
-                ul {
-                    margin: 0;
-                    padding: 0;
-                    
-                    li {
-                      list-style: none;
-                      width: 300px;
-        
-                      a {
-                        display: flex;
-                        color: #666;
-                        padding: 1rem;
-                        font-size: 16px;
-                        text-decoration: none;
-        
-                        &:hover {
-                          background-color: #f2f2f2;
-													color: rgb(108, 15, 15);
-                        }
-                      }
+							height: 500px;
+							background-color: rgba(255, 255, 255, 0.4);
+							
+              ul {
+                margin: 0;
+                padding: 0;
+                
+                li {
+                  list-style: none;
+                  width: 300px;
+    
+                  a {
+                    display: flex;
+                    color: #666;
+                    padding: 1rem;
+                    font-size: 16px;
+                    text-decoration: none;
+    
+                    &:hover {
+                      background-color: #f2f2f2;
+                      color: rgb(0, 0, 0);
                     }
                   }
+                }
+              }
             }
-            
           }
         }
       }

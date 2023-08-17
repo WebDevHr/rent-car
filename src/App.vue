@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
   <div>
-    <header class="fontFamilyCinzel">
-      <div class="flex items-center h-20 justify-center space-x-[80px]">
-        <div class="flex items-center justify-center w-28">
+    <header class="fontFamilyCinzel flex justify-center">
+      <div class="flex items-center h-20 justify-start w-[1200px]">
+        <div class="flex items-center justify-center w-28 hover:cursor-pointer lg:mr-20">
           <img src="src/assets/img/carLogo.png" alt="Logo" class="w-28">
           <!-- <span style="font-family: 'Beau Rivage', cursive;">Rent Car</span> -->
         </div>
@@ -12,8 +12,9 @@
             transition="zoom">
             <template #trigger>
               <div class="flex flex-col">
-                <button class="text-center text-lg lg:w-40 md:w-32  
-                hover:text-gray-900 text-gray-400 rounded py-[26px] rounded-lg ease-in-out duration-300">{{
+                <button
+                  class="text-center text-lg lg:w-40 md:w-32 w-28 
+                hover:text-gray-900 text-gray-400 rounded py-[26px] rounded-lg ease-in-out duration-300 flex justify-center items-center">{{
                   item.link
                 }}</button>
                 <div class="flex flex-row justify-center">
@@ -23,8 +24,9 @@
             </template>
 
             <template #body>
-              <div class="flex felx-row border rounded bg-white absolute left-0 w-full px-32">
-                <img src="src/assets/img/carLogo.png" alt="" class="w-96 h-96">
+              <div
+                class="flex felx-row border rounded bg-white absolute left-0 w-full px-32 truncate myCustom element-to-animate">
+                <img src="src/assets/img/ddImg.png" alt="" class="my-14">
                 <ul>
                   <li v-for="(sub, i) in item.subLinks" :key="i">
                     <a href="">{{ sub }}</a>
@@ -38,7 +40,7 @@
       </div>
     </header>
     <router-view></router-view>
-    <footer class="absolute bottom-0">
+    <footer>
       <div>
         Here is footer
       </div>
@@ -125,5 +127,20 @@ export default {
 
 .another-one:hover .custom-class {
   width: 100%;
+}
+
+.height-transition-enter-active,
+.height-transition-leave-active {
+  transition: height 0.5s ease-in;
+}
+
+.height-transition-enter,
+.height-transition-leave-to {
+  height: 0;
+}
+
+.element-to-animate {
+  height: 500px;
+  background-color: #ccc;
 }
 </style>
