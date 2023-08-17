@@ -12,7 +12,7 @@ const routes = [
     },
   },
   {
-    path: '/Hakimizda',
+    path: '/Hakkimizda',
     component: AboutUsPage,
   }
 

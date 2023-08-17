@@ -5,6 +5,6 @@
 <template>
 	<div>
 		<h1>Hakkımızda</h1>
-
+		
 	</div>
 </template>
