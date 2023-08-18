@@ -1,20 +1,5 @@
 <script setup lang="ts">
 // useRoute, useHead, and HelloWorld are automatically imported. See vite.config.ts for details.
-const route = useRoute()
-
-useHead({
-  title: route.meta.title,
-  meta: [
-    {
-      property: 'og:title',
-      content: route.meta.title,
-    },
-    {
-      name: 'twitter:title',
-      content: route.meta.title,
-    },
-  ],
-})
 
 </script>
 
@@ -32,7 +17,7 @@ useHead({
       <HelloWorld msg="Hello World Component" />
     </main>
     <footer class="py-6 text-sm text-center text-gray-700">
-     
+
     </footer>
   </div>
 </template>

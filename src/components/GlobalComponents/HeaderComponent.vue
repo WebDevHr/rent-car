@@ -91,22 +91,22 @@ interface NavLink {
 
 export default defineComponent({
     setup() {
-        const logoImage = 'src/assets/img/carLogo.png'
+        const logoImage = 'public/img/carLogo.png'
         const isActive = ref(false)
         const links = ref<NavLink[]>([
             {
                 link: 'Anasayfa',
-                dropDownImg: 'src/assets/img/car-sport-outline.svg',
+                dropDownImg: 'public/img/car-sport-outline.svg',
                 subLinks: []
             },
             {
                 link: 'Hakımızda',
-                dropDownImg: 'src/assets/img/ddImg.png',
+                dropDownImg: 'public/img/ddImg.png',
                 subLinks: []
             },
             {
                 link: 'Haberler',
-                dropDownImg: 'src/assets/img/car-sport-outline.svg',
+                dropDownImg: 'public/img/car-sport-outline.svg',
                 subLinks: ['Genel haberler', 'Araclarin durumu', 'Araclarin durumu', 'Araclarin durumu']
             },
             {
