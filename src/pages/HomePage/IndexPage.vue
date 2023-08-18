@@ -43,6 +43,9 @@ export default defineComponent({
         </template>
       </Carousel>
       <HelloWorld msg="Hello World Component" />
+      <div>
+        <router-link to="/Servislerimiz">go to services</router-link>
+      </div>
     </main>
     <footer class="py-6 text-sm text-center text-gray-700">
 

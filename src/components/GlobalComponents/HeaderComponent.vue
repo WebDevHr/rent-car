@@ -2,22 +2,25 @@
 <template>
     <div class="flex h-20 relative flex-row justify-between md:justify-center items-center fontFamilyCinzel">
         <div class="flex items-center justify-center w-28 h-20 hover:cursor-pointer lg:mr-20 ml-20 md:ml-0">
-            <img :src="logoImage" alt="Logo" class="w-28">
+            <router-link to="/">
+                <img :src="logoImage" alt="Logo" class="w-28">
+            </router-link>
         </div>
         <nav class=" md:flex md:flex-row hidden">
             <dropdown-menu v-for="(item, index) in links" :key="index" class="custom-style another-one" mode="hover"
                 transition="zoom" :links="links">
                 <template #trigger>
-                    <div class="flex flex-col">
-                        <button
-                            class="text-center text-lg lg:w-40 md:w-32 w-28 
-                                        hover:text-gray-900 text-gray-400 rounded py-[26px] rounded-lg ease-in-out duration-300 flex justify-center items-center">{{
-                                            item.link
-                                        }}</button>
-                        <div class="flex flex-row justify-center">
-                            <span class="custom-class"></span>
+                    <router-link :to="item.link">
+                        <div class="flex flex-col">
+                            <button class=" text-center text-lg lg:w-40 md:w-32 w-28 hover:text-gray-900 text-gray-400 rounded
+                        py-[26px] rounded-lg ease-in-out duration-300 flex justify-center items-center">
+                                {{ item.link }}
+                            </button>
+                            <div class="flex flex-row justify-center">
+                                <span class="custom-class"></span>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
                 </template>
 
                 <template #body>
@@ -56,11 +59,11 @@
                     transition="zoom" :links="links">
                     <template #trigger>
                         <div class="flex flex-col h-20">
-                            <button
-                                class="text-lg w-full
-                                        hover:text-white text-gray-400 rounded py-2 my-2 rounded-lg ease-in-out duration-300">{{
-                                            item.link
-                                        }}</button>
+
+                            <button class="text-lg w-full hover:text-white text-gray-400 rounded 
+                                py-2 my-2 rounded-lg ease-in-out duration-300">
+                                {{ item.link }}
+                            </button>
                             <div class="flex flex-row justify-center">
                                 <span class="custom-class"></span>
                             </div>
@@ -100,12 +103,12 @@ export default defineComponent({
                 subLinks: []
             },
             {
-                link: 'Hakımızda',
+                link: 'Hakkımızda',
                 dropDownImg: '/img/ddImg.png',
                 subLinks: []
             },
             {
-                link: 'Haberler',
+                link: 'Servisler',
                 dropDownImg: '/img/car-sport-outline.svg',
                 subLinks: ['Genel haberler', 'Araclarin durumu', 'Araclarin durumu', 'Araclarin durumu']
             },

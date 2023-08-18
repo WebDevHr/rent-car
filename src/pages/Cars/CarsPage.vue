@@ -4,6 +4,6 @@
 
 <template>
   <div class="text-center py-10">
-    iletisim burada yazilir
+    Araclar burada yazilir
   </div>
 </template>
