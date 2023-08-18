@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import HeaderComponent from "../src/components/GlobalComponents/HeaderComponent.vue"
-import FooterComponent from "../src/components/GlobalComponents/HeaderComponent.vue"
+import FooterComponent from "../src/components/GlobalComponents/FooterComponent.vue"
 export default {
   components: {
     HeaderComponent,
