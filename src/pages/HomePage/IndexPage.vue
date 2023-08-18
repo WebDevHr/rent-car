@@ -13,12 +13,12 @@ export default defineComponent({
   },
   setup() {
     const img = [
-      'public/img/CarouselImages/2.jpg',
-      'public/img/CarouselImages/1.jpg',
-      'public/img/CarouselImages/3.jpg',
-      'public/img/CarouselImages/4.jpg',
-      'public/img/CarouselImages/5.jpg',
-      'public/img/CarouselImages/6.jpg',
+      '/img/CarouselImages/2.jpg',
+      '/img/CarouselImages/1.jpg',
+      '/img/CarouselImages/3.jpg',
+      '/img/CarouselImages/4.jpg',
+      '/img/CarouselImages/5.jpg',
+      '/img/CarouselImages/6.jpg',
     ]
     return {
       img,
