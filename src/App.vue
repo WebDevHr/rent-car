@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
   <div>
     <header-component />

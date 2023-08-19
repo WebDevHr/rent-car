@@ -4,14 +4,13 @@
         <div class="bg-gray-800">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
-
                     <div class="col-span-2 md:col-span-1">
                         <h4 class="text-xl font-semibold">About us</h4>
                         <p class="mt-4">Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum war der
                             Standard der Branche Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem
-                            Ipsum war der Standard der Branche</p>
+                            Ipsum war der Standard der Branche
+                        </p>
                     </div>
-
                     <div class="col-span-1">
                         <h4 class="text-xl font-semibold">Information</h4>
                         <ul class="mt-4">
@@ -70,7 +69,6 @@
                 </div>
             </div>
         </div>
-
         <div class="bg-gray-700">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center py-6">
@@ -92,7 +90,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -116,10 +113,10 @@ footer {
     color: #fff;
 }
 
-#foot li a:hover {
+#foot li a {
     padding: 0 0 0 10px;
     font-weight: lighter;
-    transition: 0.3s ease;
+    transition: 0.3s ease-;
     color: gray;
     font-size: 17px;
 }

@@ -12,7 +12,7 @@
                 <template #trigger>
                     <router-link :to="item.link">
                         <div class="flex flex-col">
-                            <button class=" text-center text-lg lg:w-40 md:w-32 w-28 hover:text-gray-900 text-gray-400 rounded
+                            <button class=" text-center text-lg lg:w-40 md:w-32 w-28 hover:text-gray-900 text-gray-400 
                         py-[26px] rounded-lg ease-in-out duration-300 flex justify-center items-center">
                                 {{ item.link }}
                             </button>
@@ -23,7 +23,7 @@
                     </router-link>
                 </template>
 
-                <template #body>
+                <template v-if="item.subLinks.length != 0" #body>
                     <div
                         class="flex felx-row items-center justify-center rounded-b bg-white absolute left-0 w-full px-32 truncate myCustom element-to-animate">
                         <img :src="item.dropDownImg" alt="" class="w-72 h-48">
@@ -71,8 +71,9 @@
                     </template>
 
                     <template #body>
-                        <ul class="flex flex-col justify-center text-center py-2">
-                            <li v-for="(sub, i) in item.subLinks" :key="i" class="py-1 hover:bg-gray-500">
+                        <ul class="flex flex-col justify-center text-center" :class="{ 'py-2': item.subLinks.length != 0 }">
+                            <li v-for="(sub, i) in item.subLinks" :key="i" class="hover:bg-gray-500"
+                                :class="{ 'py-1': item.subLinks.length != 0 }">
                                 <a href="">{{ sub }}</a>
                             </li>
                         </ul>
