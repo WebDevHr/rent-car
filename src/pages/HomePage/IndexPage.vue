@@ -12,14 +12,14 @@ export default defineComponent({
     Navigation,
   },
   setup() {
-    const img = [
+    const img = ref<Array<string>>([
       '/img/CarouselImages/2.jpg',
       '/img/CarouselImages/1.jpg',
       '/img/CarouselImages/3.jpg',
       '/img/CarouselImages/4.jpg',
       '/img/CarouselImages/5.jpg',
       '/img/CarouselImages/6.jpg',
-    ]
+    ])
     return {
       img,
     }

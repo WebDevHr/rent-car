@@ -1,10 +1,24 @@
-<!-- <template>
-    <Carousel :itemsToShow="3.95" :wrapAround="true" :transition="500">
-        <Slide v-for="slide in 10" :key="slide">
-            <div class="carousel__item">{{ slide }}</div>
-        </Slide>
+<!-- eslint-disable vue/first-attribute-linebreak -->
+<template>
+    <div>
+        <Carousel v-model="currentSlide" :autoplay="4000" :items-to-show="3" :wrap-around="true" :transition="800"
+            class="h-[300px] md:h-[400px] lg:h-[600px]">
+            <Slide v-for="slide in cars" :key="slide" class="h-[200px] md:h-[300px] lg:h-[500px]">
+                <div class="carousel__item">
+                    <div class="flex flex-col items-center">
+                        <img :src="slide" :alt="slide">
+                        <h1>tip</h1>
+                        <h5>ad</h5>
+                        <button class="border w-32">click me</button>
+                    </div>
+                </div>
+            </Slide>
 
-    </Carousel>
+            <template #addons>
+                <Pagination />
+            </template>
+        </Carousel>
+    </div>
 </template>
   
 <script lang="ts">
@@ -20,6 +34,21 @@ export default defineComponent({
         Slide,
         Pagination,
     },
+    setup() {
+        const currentSlide = ref(0)
+        const cars = ref<Array<string>>([
+            '/img/FiloImages/1.png',
+            '/img/FiloImages/2.png',
+            '/img/FiloImages/3.png',
+            '/img/FiloImages/4.png',
+            '/img/FiloImages/5.png',
+        ])
+
+        return {
+            cars,
+            currentSlide
+        }
+    }
 })
 </script>
   
@@ -63,4 +92,4 @@ export default defineComponent({
     opacity: 1;
     transform: rotateY(0) scale(1.1);
 }
-</style> -->
+</style>

@@ -1,9 +1,14 @@
-<script setup lang="ts">
-
+<script lang="ts">
+import CarsFilo from "../../components/CarsComponents/CarsFilo.vue"
+export default {
+  components: {
+    CarsFilo
+  },
+}
 </script>
 
 <template>
   <div class="text-center py-10">
-    Araclar burada yazilir
+    <cars-filo />
   </div>
 </template>

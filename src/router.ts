@@ -8,7 +8,7 @@ import CarsPage from '@/pages/Cars/CarsPage.vue'
 
 const routes = [
   {
-    path: '/Anasayfa',
+    path: '/anasayfa',
     component: IndexPage,
     meta: {
       title: 'Anasayfa',
@@ -16,28 +16,28 @@ const routes = [
     alias: '/'
   },
   {
-    path: '/Hakkımızda',
+    path: '/hakkimizda',
     component: AboutUsPage,
     meta: {
-      title: 'Rent Car',
+      title: 'Hakkımızda',
     },
   },
   {
-    path: '/Servisler',
+    path: '/hizmetler',
     component: OurServicesPage,
     meta: {
-      title: 'Servisler',
+      title: 'Hizmetler',
     },
   },
   {
-    path: '/İletişim',
+    path: '/iletisim',
     component: ContactUsPage,
     meta: {
       title: 'İletişim',
     },
   },
   {
-    path: '/Araçlar',
+    path: '/araclar',
     component: CarsPage,
     meta: {
       title: 'Araçlar',

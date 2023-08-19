@@ -17,3 +17,13 @@ export default {
 }
 </script>
 
+<style>
+.fontFamilyCinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.fontFamilyNunito {
+  font-family: 'Nunito', sans-serif;
+}
+</style>
+

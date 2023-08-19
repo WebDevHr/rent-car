@@ -1,20 +1,20 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-    <div class="flex h-20 relative flex-row justify-between md:justify-center items-center fontFamilyCinzel">
+    <div class="flex relative flex-row justify-between md:justify-center items-center fontFamilyCinzel border-b">
         <div class="flex items-center justify-center w-28 h-20 hover:cursor-pointer lg:mr-20 ml-20 md:ml-0">
             <router-link to="/">
                 <img :src="logoImage" alt="Logo" class="w-28">
             </router-link>
         </div>
-        <nav class=" md:flex md:flex-row hidden">
-            <dropdown-menu v-for="(item, index) in links" :key="index" class="custom-style another-one" mode="hover"
-                transition="zoom" :links="links">
+        <nav class="md:flex md:flex-row hidden">
+            <dropdown-menu v-for="(item, index) in links" :key="index" class="custom-style another-one relative"
+                mode="hover" transition="zoom" :links="links" direction="center">
                 <template #trigger>
                     <router-link :to="item.link">
                         <div class="flex flex-col">
-                            <button class=" text-center text-lg lg:w-40 md:w-32 w-28 hover:text-gray-900 text-gray-400 
+                            <button class=" text-center text-lg hover:text-xl lg:w-40 md:w-32 w-28 hover:text-gray-950 text-gray-400 
                         py-[26px] rounded-lg ease-in-out duration-300 flex justify-center items-center">
-                                {{ item.link }}
+                                {{ item.linkName }}
                             </button>
                             <div class="flex flex-row justify-center">
                                 <span class="custom-class"></span>
@@ -25,8 +25,7 @@
 
                 <template v-if="item.subLinks.length != 0" #body>
                     <div
-                        class="flex felx-row items-center justify-center rounded-b bg-white absolute left-0 w-full px-32 truncate myCustom element-to-animate">
-                        <img :src="item.dropDownImg" alt="" class="w-72 h-48">
+                        class="flex felx-row items-center justify-center rounded-b absolute border fontFamilyNunito -left-[35px] lg:-left-[20px]">
                         <ul>
                             <li v-for="(sub, i) in item.subLinks" :key="i">
                                 <a href="">{{ sub }}</a>
@@ -39,8 +38,8 @@
         </nav>
 
 
-        <div class=" flex justify-center items-center w-10 h-20 z-[1002]"
-            :class="{ 'fixed top-0 right-20': isActive, 'mr-20': !isActive }">
+        <div class=" flex justify-center items-center w-10 h-20 z-[1002] hamburger"
+            :class="{ 'fixed top-0 right-20': isActive, 'mr-20': !isActive }" @click="toggleSideNav">
             <button class="w-8 h-8 flex flex-col justify-center items-center focus:outline-none md:hidden"
                 @click="isActive = !isActive">
                 <span class="w-8 h-[3px] bg-black transition-transform duration-300 transform origin-center rounded"
@@ -52,26 +51,28 @@
                     :class="{ '-rotate-45': isActive, 'rotate-0': !isActive }"></span>
             </button>
         </div>
-        <nav class="md:hidden fixed inset-y-0 right-0 w-1/2 z-[1001] bg-black text-white"
-            :class="{ 'hidden w-0': !isActive }">
+        <nav class="md:hidden fixed justify-end inset-y-0 right-0 w-0 hidden z-[1001] bg-black text-white sideNav">
             <div class="flex flex-col items-center pt-20">
                 <dropdown-menu v-for="(item, index) in links" :key="index" class="custom-style another-one" mode="hover"
                     transition="zoom" :links="links">
                     <template #trigger>
-                        <div class="flex flex-col h-20">
+                        <router-link :to="item.link">
+                            <div class="flex flex-col h-20 sideNav items-center justify-center">
 
-                            <button class="text-lg w-full hover:text-white text-gray-400 rounded 
-                                py-2 my-2 rounded-lg ease-in-out duration-300">
-                                {{ item.link }}
-                            </button>
-                            <div class="flex flex-row justify-center">
-                                <span class="custom-class"></span>
+                                <button class="text-lg w-full hover:text-white text-gray-400 rounded 
+                                py-2 hover:pb-0 my-2 rounded-lg ease-in-out duration-300">
+                                    {{ item.linkName }}
+                                </button>
+                                <div class="flex justify-center items-center">
+                                    <span class="custom-class2"></span>
+                                </div>
                             </div>
-                        </div>
+                        </router-link>
                     </template>
 
                     <template #body>
-                        <ul class="flex flex-col justify-center text-center" :class="{ 'py-2': item.subLinks.length != 0 }">
+                        <ul class="flex flex-col justify-center text-center fontFamilyNunito text-sm"
+                            :class="{ 'pb-2': item.subLinks.length != 0 }">
                             <li v-for="(sub, i) in item.subLinks" :key="i" class="hover:bg-gray-500"
                                 :class="{ 'py-1': item.subLinks.length != 0 }">
                                 <a href="">{{ sub }}</a>
@@ -85,10 +86,12 @@
 </template>
 
 <script lang="ts">
+import { gsap } from "gsap"
 import { ref, defineComponent } from 'vue';
 
 interface NavLink {
     link: string;
+    linkName: string;
     dropDownImg: string;
     subLinks: string[];
 }
@@ -99,74 +102,86 @@ export default defineComponent({
         const isActive = ref(false)
         const links = ref<NavLink[]>([
             {
-                link: 'Anasayfa',
+                link: 'anasayfa',
+                linkName: 'Anasayfa',
                 dropDownImg: '/img/car-sport-outline.svg',
                 subLinks: []
             },
             {
-                link: 'Hakkımızda',
+                link: 'hakkimizda',
+                linkName: 'Hakkımızda',
                 dropDownImg: '/img/ddImg.png',
                 subLinks: []
             },
             {
-                link: 'Servisler',
+                link: 'hizmetler',
+                linkName: 'Hizmetler',
                 dropDownImg: '/img/car-sport-outline.svg',
                 subLinks: ['Genel haberler', 'Araclarin durumu', 'Araclarin durumu', 'Araclarin durumu']
             },
             {
-                link: 'Araçlar',
+                link: 'araclar',
+                linkName: 'Araçlar',
                 dropDownImg: '',
                 subLinks: []
             },
             {
-                link: 'İletişim',
+                link: 'iletisim',
+                linkName: 'İletişim',
                 dropDownImg: '',
                 subLinks: []
             }
         ])
 
+        function toggleSideNav() {
+            if (isActive.value === true) {
+                gsap.to(".sideNav", { width: '50%', display: 'block' })
+            } else {
+                gsap.to(".sideNav", { width: '0', display: 'none' })
+            }
+        }
+
+        const closeSideNav = () => {
+            isActive.value = false;
+            gsap.to(".sideNav", { width: '0', display: 'none' });
+        };
+
+        // Event listener to close side nav when clicking outside
+        const closeSideNavOnClickOutside = (event: any) => {
+            if (isActive.value == true && event.target.closest('.sideNav') === null && !event.target.closest('.hamburger')) {
+                closeSideNav();
+            }
+        };
+
+        const handleWindowResize = () => {
+            if (window.innerWidth > 768 && isActive.value) {
+                closeSideNav();
+            }
+        };
+
+        onMounted(() => {
+            document.addEventListener('click', closeSideNavOnClickOutside);
+            window.addEventListener('resize', handleWindowResize);
+        });
+
+        onUnmounted(() => {
+            document.removeEventListener('click', closeSideNavOnClickOutside);
+            window.removeEventListener('resize', handleWindowResize);
+        });
+
+
+
         return {
             links,
             isActive,
-            logoImage
+            logoImage,
+            toggleSideNav
         }
     }
 });
 </script>
 
 <style scoped>
-.fontFamilyBeauRivage {
-    font-family: 'Beau Rivage', cursive;
-}
-
-.fontFamilySquarePeg {
-    font-family: 'Square Peg', cursive;
-    font-size: 30px;
-}
-
-.fontFamilyKranky {
-    font-family: 'Kranky', cursive;
-    font-size: 24px;
-}
-
-.fontFamilyCormorantGaramond {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-}
-
-.fontFamilyVinaSans {
-    font-family: 'Vina Sans', cursive;
-}
-
-.fontFamilyAmaticSC {
-    font-family: 'Amatic SC', cursive;
-    font-size: 24px;
-}
-
-.fontFamilyCinzel {
-    font-family: 'Cinzel', serif;
-}
-
 .custom-class {
     width: 0px;
     height: 2px;
@@ -174,10 +189,10 @@ export default defineComponent({
     transition: all 0.3s ease-in-out;
 }
 
-.custom-class {
+.custom-class2 {
     width: 0px;
     height: 2px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     transition: all 0.3s ease-in-out;
 }
 
@@ -185,19 +200,8 @@ export default defineComponent({
     width: 100%;
 }
 
-.height-transition-enter-active,
-.height-transition-leave-active {
-    transition: height 0.5s ease-in;
-}
-
-.height-transition-enter,
-.height-transition-leave-to {
-    height: 0;
-}
-
-.element-to-animate {
-    height: 500px;
-    background-color: #ccc;
+.another-one:hover .custom-class2 {
+    width: 100%;
 }
 
 .rotate-45 {
