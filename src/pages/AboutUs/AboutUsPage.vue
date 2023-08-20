@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({})
 </script>
 
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
 	<div>
 		<h1 class="px-5 py-5"
