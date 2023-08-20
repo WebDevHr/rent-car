@@ -7,17 +7,18 @@
             </router-link>
         </div>
         <nav class="md:flex md:flex-row hidden">
-            <dropdown-menu v-for="(item, index) in links" :key="index" class="custom-style another-one relative"
+            <dropdown-menu v-for="(item, index) in links" :key="index" class="custom-style trigger-hover relative"
                 mode="hover" transition="zoom" :links="links" direction="center">
                 <template #trigger>
                     <router-link :to="item.link">
                         <div class="flex flex-col">
-                            <button class=" text-center text-lg hover:text-xl lg:w-40 md:w-32 w-28 hover:text-gray-950 text-gray-400 
+                            <button class=" text-center text-lg hover:text-xl lg:w-40 md:w-32 w-28 
+                            hover:text-gray-950 text-gray-400 
                         py-[26px] rounded-lg ease-in-out duration-300 flex justify-center items-center">
                                 {{ item.linkName }}
                             </button>
                             <div class="flex flex-row justify-center">
-                                <span class="custom-class"></span>
+                                <span class="custom-class bg-black"></span>
                             </div>
                         </div>
                     </router-link>
@@ -51,35 +52,30 @@
                     :class="{ '-rotate-45': isActive, 'rotate-0': !isActive }"></span>
             </button>
         </div>
-        <nav class="md:hidden fixed justify-end inset-y-0 right-0 w-0 hidden z-[1001] bg-black text-white sideNav">
-            <div class="flex flex-col items-center pt-20">
-                <dropdown-menu v-for="(item, index) in links" :key="index" class="custom-style another-one" mode="hover"
-                    transition="zoom" :links="links">
-                    <template #trigger>
-                        <router-link :to="item.link">
-                            <div class="flex flex-col h-20 sideNav items-center justify-center">
+        <nav
+            class="md:hidden fixed justify-end inset-y-0 right-0 w-0 hidden z-[1001] bg-black text-white sideNav overflow-hidden">
+            <div class="flex flex-col items-center pt-20 w-full">
+                <div v-for="(item, index) in links" :key="index" @mouseover="test(index, item.subLinks.length != 0)"
+                    @mouseleave="test2(index)">
+                    <router-link :to="item.link">
+                        <div class="flex flex-col items-center justify-center w-full">
+                            <button class="text-xl w-full hover:text-white text-gray-400 
+                                py-2 my-2 ease-in-out duration-300 tracking-widest">
+                                {{ item.linkName }}
+                            </button>
+                            <span class="custom-class bg-white"></span>
+                        </div>
+                    </router-link>
 
-                                <button class="text-lg w-full hover:text-white text-gray-400 rounded 
-                                py-2 hover:pb-0 my-2 rounded-lg ease-in-out duration-300">
-                                    {{ item.linkName }}
-                                </button>
-                                <div class="flex justify-center items-center">
-                                    <span class="custom-class2"></span>
-                                </div>
-                            </div>
-                        </router-link>
-                    </template>
-
-                    <template #body>
-                        <ul class="flex flex-col justify-center text-center fontFamilyNunito text-sm"
-                            :class="{ 'pb-2': item.subLinks.length != 0 }">
-                            <li v-for="(sub, i) in item.subLinks" :key="i" class="hover:bg-gray-500"
-                                :class="{ 'py-1': item.subLinks.length != 0 }">
-                                <a href="">{{ sub }}</a>
-                            </li>
-                        </ul>
-                    </template>
-                </dropdown-menu>
+                    <ul class="hidden h-0 flex flex-col justify-center items-center text-sm sublinkUl overflow-hidden"
+                        :class="{ 'pb-2': item.subLinks.length != 0 }" :data-index="index">
+                        <li v-for="(sub, i) in item.subLinks" :key="i"
+                            class=" hover:text-white text-gray-400 sublinksStagger"
+                            :class="{ 'py-1': item.subLinks.length != 0 }">
+                            <a href="">{{ sub }}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </div>
@@ -140,6 +136,20 @@ export default defineComponent({
                 gsap.to(".sideNav", { width: '0', display: 'none' })
             }
         }
+        function test(index: any, haveSubs: boolean) {
+            const targetElement = document.querySelector(`.sideNav .sublinkUl[data-index="${index}"]`);
+            // const targetElement2 = document.querySelector(`.sideNav .sublinkUl[data-index="${index}"] .sublinksStagger`);
+            if (targetElement && haveSubs) {
+                gsap.to(targetElement, { display: 'flex', height: '150px' });
+            }
+        }
+
+        function test2(index: any) {
+            const targetElement = document.querySelector(`.sideNav .sublinkUl[data-index="${index}"]`);
+            if (targetElement) {
+                gsap.to(targetElement, { display: 'none', height: '0', ease: 'bounce', duration: 0.8 });
+            }
+        }
 
         const closeSideNav = () => {
             isActive.value = false;
@@ -175,7 +185,9 @@ export default defineComponent({
             links,
             isActive,
             logoImage,
-            toggleSideNav
+            toggleSideNav,
+            test,
+            test2
         }
     }
 });
@@ -185,24 +197,14 @@ export default defineComponent({
 .custom-class {
     width: 0px;
     height: 2px;
-    background-color: black;
     transition: all 0.3s ease-in-out;
 }
 
-.custom-class2 {
-    width: 0px;
-    height: 2px;
-    background-color: rgb(255, 255, 255);
-    transition: all 0.3s ease-in-out;
-}
-
-.another-one:hover .custom-class {
+.trigger-hover:hover .custom-class {
     width: 100%;
 }
 
-.another-one:hover .custom-class2 {
-    width: 100%;
-}
+/* hamburger menu  */
 
 .rotate-45 {
     transform: rotate(45deg);
