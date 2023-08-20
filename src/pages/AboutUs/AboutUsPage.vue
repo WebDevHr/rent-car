@@ -1,4 +1,6 @@
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({})
 </script>
 
 <template>
@@ -54,4 +56,5 @@
 .comment-1 {
 	background-color: beige;
 
-}</style>
+}
+</style>
